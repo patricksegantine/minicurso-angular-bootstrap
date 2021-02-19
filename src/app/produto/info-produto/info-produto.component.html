@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row text-ceter">
+    <div class="col-md-4">
+      <img src="/assets/imagens/produtos/{{produto.imagem}}" alt="{{produto.nome}}" width="300px">
+    </div>
+    <div class="col-md-8">
+      <h2 class="text-primary">{{produto.nome}}</h2>
+
+      <div *ngIf="!produto.promocao">
+        <p>Por apenas:</p>
+        <div><h4>{{produto.valor | currency:'BRL':'symbol':'1.2-2':'pt' }}</h4></div>
+      </div>
+
+      <div *ngIf="produto.promocao">
+        <h4 class="card-text">
+          de: <small><del>{{produto.valor | currency:'BRL':'symbol':'1.2-2':'pt'}}</del></small>
+          por: {{produto.valorPromocao |currency:'BRL':'symbol':'1.2-2':'pt'}}
+        </h4>
+      </div>
+
+      <a href="" class="btn btn-primary">
+        <span class="fa fa-shopping-cart"></span> Comprar
+      </a>
+    </div>
+  </div>
+</div>

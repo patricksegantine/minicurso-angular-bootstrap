@@ -1,0 +1,43 @@
+<div class="container mt-3 mb-3">
+  <h3>Interpolation</h3>
+  <p [ngClass]="{
+    'text-secondary':contadorClick < 3,
+    'text-info': contadorClick >=3,
+    'text-warning': contadorClick >=5,
+    'text-danger': contadorClick>=9
+  }">
+    Contagem atual: {{contadorClick}}
+  </p>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+
+  <h3>Property Binding</h3>
+  <button class="btn btn-info" [disabled]="contadorClick >= 10">Info</button>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <h3>Event Binding</h3>
+  <button class="btn btn-warning me-1" (click)="contarClick()">Clique aqui</button>
+  <button class="btn btn-danger" (click)="zerarContador()" [disabled]="contadorClick === 0">Zerar contador</button>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <h3>Two-way Binding</h3>
+  <!-- <input type="text" (keyup)="KeyUp($event)" placeholder="Seu melhor e-mail"> -->
+  <!-- <input type="text" [ngModel]="email" (ngModelChange)='email = $event' placeholder="Seu melhor e-mail"> -->
+  <input type="text" [(ngModel)]="email" placeholder="Seu melhor e-mail">
+  <br>
+  <br>
+  <label>E-mail digitado: {{email}}</label>
+
+</div>

@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row text-ceter">
+
+    <div *ngFor="let produto of produtos" class="col-md-3 pb-3 text-center">
+      <div class="card h-100">
+        <a class="text-decoration-none" [routerLink]="['/produtos/', produto.nome, produto.id]">
+          <div class="align-content:center">
+            <img src="/assets/imagens/produtos/{{produto.imagem}}" alt="" height="164px" width="253px">
+          </div>
+        </a>
+        <div class="card-body">
+          <h3 class="card-title">{{produto.nome | titlecase}}</h3>
+
+          <div class="d-flex justify-content-between align-items-center">
+            <div *ngIf="!produto.promocao">
+              <p>Por apenas:</p>
+              <div><h4>{{produto.valor | currency:'BRL':'symbol':'1.2-2':'pt' }}</h4></div>
+            </div>
+
+            <div *ngIf="produto.promocao">
+              <h3 class="card-text">
+                de: <small><del>{{produto.valor | currency:'BRL':'symbol':'1.2-2':'pt'}}</del></small>
+                por: {{produto.valorPromocao |currency:'BRL':'symbol':'1.2-2':'pt'}}
+              </h3>
+            </div>
+
+            <a href="" class="btn btn-primary">
+              <span class="fa fa-shopping-cart"></span> Comprar
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
